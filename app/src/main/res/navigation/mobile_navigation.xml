@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_dashboard">
+
+
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.Islington.lpdelivery.BottomNavui.home.HomeFragment"
+        android:label="My Orders"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.Islington.lpdelivery.BottomNavui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+
+
+
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.Islington.lpdelivery.BottomNavui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/vendorDashboardFragment"
+        android:name="com.Islington.lpdelivery.VendorBotomNav.VendorDashboardFragment"
+        android:label="Vendor Dashboard"
+        tools:layout="@layout/fragment_vendor_dashboard" />
+    <fragment
+        android:id="@+id/vendor_Orders"
+        android:name="com.Islington.lpdelivery.Vendor_Orders"
+        android:label="Vendor_Orders" />
+</navigation>

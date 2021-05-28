@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:id="@+id/gallery_btn"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:padding="@dimen/_2sdp"
+        android:src="@drawable/gallery_icon" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/gallery_btn"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:text="Select form gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

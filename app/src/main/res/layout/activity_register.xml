@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Signup.Activity_register"
+    android:background="@drawable/ic_ellipse">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_430sdp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/_6sdp"
+                android:text="Sign Up"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="15dp">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:hintEnabled="false"
+                    android:id="@+id/container_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:hint="Full name"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/_4sdp"
+                        android:id="@+id/u_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColorHighlight="@color/white"
+                        android:textColorLink="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="@dimen/_6sdp"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="15dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:hintEnabled="false"
+                    android:id="@+id/container_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:padding="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/u_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="email"
+                    android:textColorHighlight="@color/white"
+                    android:textColorLink="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="15dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:hintEnabled="false"
+                    android:id="@+id/container_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:padding="@dimen/_4sdp"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/u_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:textColorHighlight="@color/white"
+                    android:textColorLink="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="15dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:hintEnabled="false"
+                    android:id="@+id/container_con_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:padding="@dimen/_4sdp"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:textColorHighlight="@color/white"
+                    android:textColorLink="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="15dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    app:hintEnabled="false"
+                    android:id="@+id/container_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:padding="@dimen/_4sdp"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/u_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Phone Number"
+                    android:inputType="number"
+                    android:textColorHighlight="@color/white"
+                    android:textColorLink="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="15dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    app:hintEnabled="false"
+                    android:id="@+id/container_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:padding="@dimen/_4sdp"
+                        android:background="@android:color/transparent"
+                        android:id="@+id/u_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Address"
+                        android:inputType="text"
+                        android:textColorHighlight="@color/white"
+                        android:textColorLink="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Select User Type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/user_type"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/user_vendor"
+                    android:buttonTint="#1877E7"
+                    android:text="Vendor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:id="@+id/user_customer"
+                    android:buttonTint="#1877E7"
+                    android:layout_marginStart="@dimen/_50sdp"
+                    android:text="Customer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+<!--    <LinearLayout-->
+
+<!--            android:id="@+id/image_picker"-->
+<!--             android:orientation="horizontal"-->
+<!--          android:layout_width="match_parent"-->
+<!--            android:layout_height="35dp">-->
+
+
+<!--    <TextView-->
+<!--        android:padding="@dimen/_4sdp"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:text="Upload image:"-->
+<!--        android:textSize="18sp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/choose_image"-->
+<!--            android:src="@drawable/camera_icon"-->
+<!--            android:layout_width="@dimen/_30sdp"-->
+<!--            android:layout_height="@dimen/_30sdp"/>-->
+
+<!--    </LinearLayout>-->
+
+
+            <Button
+                android:id="@+id/btn_signup"
+                android:background="@drawable/btn_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="Sign Up" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dont Have an Account?" />
+
+                <TextView
+                    android:id="@+id/txt_signin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:text="Sign In"
+                    android:textColor="@android:color/holo_red_dark" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:textSize="32sp"
+        android:textColor="@android:color/white"
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gas Agency"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
