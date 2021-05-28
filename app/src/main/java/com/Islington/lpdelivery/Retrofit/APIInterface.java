@@ -6,6 +6,7 @@ import com.Islington.lpdelivery.Model.ProductsModel;
 import com.Islington.lpdelivery.Model.Registerresponse;
 import com.Islington.lpdelivery.Model.RequestOrderResponse;
 import com.Islington.lpdelivery.Model.VendorModel;
+import com.Islington.lpdelivery.Models.NotificationsModel;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -23,11 +24,15 @@ public interface APIInterface {
     @POST("login")
     Call<LoginResponseModel> login(@Body RequestBody body);
 
+    @Headers("x-api-key: pu@7_3w@6")
+    @GET("getUserNotification")
+    Call<NotificationsModel> getnotification(@Query("user_id") String comp_id);
+
 
 
     @Headers("x-api-key: pu@7_3w@6")
     @POST("register")
-    Call<Registerresponse> register(@Body RequestBody body);
+    Call<LoginResponseModel> register(@Body RequestBody body);
 
 
 

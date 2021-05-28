@@ -20,13 +20,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.TimeZone;
 
-class NotificationsfragmentAdapter extends RecyclerView.Adapter<NotificationsfragmentAdapter.ViewHolder>  {
+public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdapter.ViewHolder>  {
 
     List<NotificationsModel.Notification_data> notificationsModels;
     Context context;
 
 
-    public NotificationsfragmentAdapter(Context context, List<NotificationsModel.Notification_data> notificationsModels) {
+    public NotificationsAdapter(Context context, List<NotificationsModel.Notification_data> notificationsModels) {
         this.context = context;
         this.notificationsModels = notificationsModels;
 
@@ -36,13 +36,13 @@ class NotificationsfragmentAdapter extends RecyclerView.Adapter<Notificationsfra
 
     @NonNull
     @Override
-    public NotificationsfragmentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NotificationsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.notifications_items,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotificationsfragmentAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificationsAdapter.ViewHolder holder, int position) {
 
 
         holder.notititle.setText(Html.fromHtml(notificationsModels.get(position).getTitle()));

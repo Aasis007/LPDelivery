@@ -67,6 +67,15 @@ public class Login_activity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (!sharedprefresclass.getEmail().equals("")){
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        }
+    }
+
     private void prepardataforserver(TextInputEditText uname, TextInputEditText upassword) {
 
                 String loginname = uname.getText().toString().trim();
@@ -87,8 +96,10 @@ public class Login_activity extends AppCompatActivity {
                             loginResponseModel = new ArrayList<>();
                             String cid = response.body().getUserdata().getId();
                             String address = response.body().getUserdata().getAddress();
-                           sharedprefresclass.saveaddress(address);
+                            sharedprefresclass.saveaddress(address);
                             sharedprefresclass.saveUID(cid);
+                            sharedprefresclass.saveEmail(response.body().getUserdata().getEmail());
+                            sharedprefresclass.saveUserType(response.body().getUser_type());
                             Log.d("cid","id"+cid);
                             Toast.makeText(getApplicationContext(), "Login Succssful"+cid, Toast.LENGTH_SHORT).show();
                             Intent mainactivityintent = new Intent(Login_activity.this,MainActivity.class);

@@ -7,8 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
     public static final String BASE_URL = "http://kandktechnepal.com/gas_agency/public/api/";
+    public static String AppName = "LPDelivery";
 
-   public static Retrofit getRetrofit() {
+    public static Retrofit getRetrofit() {
 
        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

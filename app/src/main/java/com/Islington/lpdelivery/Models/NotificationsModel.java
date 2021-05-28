@@ -1,5 +1,8 @@
 package com.Islington.lpdelivery.Models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class NotificationsModel {
@@ -9,7 +12,8 @@ public class NotificationsModel {
 
     private String message;
 
-
+    @SerializedName("notification_data")
+    @Expose
     private List<Notification_data> notification_data = null;
 
 

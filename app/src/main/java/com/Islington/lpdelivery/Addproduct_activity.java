@@ -51,24 +51,15 @@ public class Addproduct_activity extends AppCompatActivity {
 
         submitbtn = findViewById(R.id.btn_submit);
 
-        submitbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        submitbtn.setOnClickListener(view -> {
 
-                String prodname = pname.getText().toString().trim();
-                String prodprice = pprice.getText().toString();
-                String prodstock = pstock.getText().toString();
+            String prodname = pname.getText().toString().trim();
+            String prodprice = pprice.getText().toString();
+            String prodstock = pstock.getText().toString();
 
-                validate(prodname,prodprice,prodstock);
+            validate(prodname,prodprice,prodstock);
 
-                preparedataforadd(prodname,prodprice,prodstock);
-
-
-            }
-
-
-
-
+            preparedataforadd(prodname,prodprice,prodstock);
 
 
         });

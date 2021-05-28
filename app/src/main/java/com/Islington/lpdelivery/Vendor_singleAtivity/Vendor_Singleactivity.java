@@ -42,12 +42,12 @@ public class Vendor_Singleactivity extends AppCompatActivity {
     ElegantNumberButton prod_qty;
     EditText notes;
     Button submit;
-    String otype;
+    String otype = "0";
     String proprice;
     String extraprice;
     String proqty;
     String vendor_id;
-    String nots;
+    String nots = "";
     String productStock;
 
 
@@ -70,8 +70,6 @@ public class Vendor_Singleactivity extends AppCompatActivity {
         String prodid = getIntent().getStringExtra("pid");
 
 
-
-        fetchproddetails(prodid);
         notes = findViewById(R.id.notes);
 
 
@@ -79,43 +77,42 @@ public class Vendor_Singleactivity extends AppCompatActivity {
 
 
         //ordertypes
-        ordertype.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        ordertype.setOnCheckedChangeListener((radioGroup, i) -> {
 
-                View selectedbtn = radioGroup.findViewById(i);
-                int index = radioGroup.indexOfChild(selectedbtn);
-                switch (index) {
+            View selectedbtn = radioGroup.findViewById(i);
+            int index = radioGroup.indexOfChild(selectedbtn);
+            switch (index) {
 
-                    case 0:
-                        order_type.setText("New Order Price");
-                         extraprice = "2100";
-                        ordertype_price.setText("Rs.2100");
-                        otype = "1";
-                        Toast.makeText(Vendor_Singleactivity.this, "type:"+otype, Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1:
-                        order_type.setText("Replacement Price");
-                        extraprice = "0";
-                        ordertype_price.setText("0");
-                        otype = "2";
-                        Toast.makeText(Vendor_Singleactivity.this, "type:"+otype, Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        order_type.setText("Exchange Price");
-                        extraprice = "300";
-                        ordertype_price.setText("Rs.300");
-                         otype = "3";
-                        Toast.makeText(Vendor_Singleactivity.this, "type:"+otype, Toast.LENGTH_SHORT).show();
-                        break;
-
-                }
+                case 0:
+                    order_type.setText("New Order Price");
+                     extraprice = "2100";
+                    ordertype_price.setText("Rs.2100");
+                    otype = "1";
+                    Toast.makeText(Vendor_Singleactivity.this, "type:"+otype, Toast.LENGTH_SHORT).show();
+                    break;
+                case 1:
+                    order_type.setText("Replacement Price");
+                    extraprice = "0";
+                    ordertype_price.setText("0");
+                    otype = "2";
+                    Toast.makeText(Vendor_Singleactivity.this, "type:"+otype, Toast.LENGTH_SHORT).show();
+                    break;
+                case 2:
+                    order_type.setText("Exchange Price");
+                    extraprice = "300";
+                    ordertype_price.setText("Rs.300");
+                     otype = "3";
+                    Toast.makeText(Vendor_Singleactivity.this, "type:"+otype, Toast.LENGTH_SHORT).show();
+                    break;
 
             }
+
         });
 
         submit = findViewById(R.id.submit_btn);
 
+
+        fetchproddetails(prodid);
 
 
     }
@@ -124,7 +121,7 @@ public class Vendor_Singleactivity extends AppCompatActivity {
 
         Intent checkoutpageintent = new Intent(getApplicationContext(), Confirmorder_activity.class);
         checkoutpageintent.putExtra("vendor_id",vendor_id);
-        checkoutpageintent.putExtra("notes",nots);
+        checkoutpageintent.putExtra("notes",nots.isEmpty() ? "" : nots);
         checkoutpageintent.putExtra("p_id",prodid);
         checkoutpageintent.putExtra("order_type",otype);
         checkoutpageintent.putExtra("gas_name",prodname);
@@ -133,7 +130,7 @@ public class Vendor_Singleactivity extends AppCompatActivity {
         checkoutpageintent.putExtra("qty",proqty);
         if (productStock.equals("out of Stock")) {
 
-            Toast.makeText(this, "Cannout order product which is out of stock", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Can not order product which is out of stock", Toast.LENGTH_SHORT).show();
 
         }
         else {
@@ -176,7 +173,12 @@ public class Vendor_Singleactivity extends AppCompatActivity {
                             proqty = prod_qty.getNumber();
                             nots = notes.getText().toString().trim();
 
-                            confirmorderdialog(vendor_id,prodid,prodname,proprice,proqty,otype,extraprice,nots,productStock);
+                            if (otype == "0"){
+                                Toast.makeText(Vendor_Singleactivity.this, "Select Order Type", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                            confirmorderdialog(vendor_id,prodid,prodname,proprice,proqty,otype,extraprice,nots.equals("") ? "" : nots,productStock);
                         });
 
 

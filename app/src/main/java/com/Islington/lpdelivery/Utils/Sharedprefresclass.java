@@ -12,6 +12,23 @@ public class Sharedprefresclass {
         sharedPreferences =context.getSharedPreferences("Userdetails",Context.MODE_PRIVATE);
     }
 
+    public void saveEmail(String email) {
+
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editor.putString("email",email);
+        editor.apply();
+
+
+    }
+
+
+
+    public String getEmail() {
+        return sharedPreferences.getString("email","");
+    }
+
+
+
     public void saveUID(String uid) {
 
             SharedPreferences.Editor editor =sharedPreferences.edit();
@@ -21,9 +38,28 @@ public class Sharedprefresclass {
 
     }
 
+
+
     public String getUID() {
             return sharedPreferences.getString("uid","");
     }
+
+
+    public void saveUserType(String uid) {
+
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editor.putString("user_type",uid);
+        editor.apply();
+
+
+    }
+
+
+
+    public String getUserType() {
+        return sharedPreferences.getString("user_type","");
+    }
+
 
 
     public void saveaddress(String address) {

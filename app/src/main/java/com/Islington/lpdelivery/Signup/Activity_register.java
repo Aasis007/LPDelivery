@@ -36,10 +36,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Islington.lpdelivery.Login.Login_activity;
+import com.Islington.lpdelivery.Model.LoginResponseModel;
 import com.Islington.lpdelivery.Model.Registerresponse;
 import com.Islington.lpdelivery.R;
 import com.Islington.lpdelivery.Retrofit.APIClient;
 import com.Islington.lpdelivery.Retrofit.APIInterface;
+import com.Islington.lpdelivery.Utils.Sharedprefresclass;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -76,7 +78,8 @@ public class Activity_register extends AppCompatActivity {
     String longitude = null;
     String usrtype;
     File file;
-
+    String userType = "0";
+    Sharedprefresclass saveData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +100,8 @@ public class Activity_register extends AppCompatActivity {
         signup = findViewById(R.id.btn_signup);
         signin = findViewById(R.id.txt_signin);
         usertype = findViewById(R.id.user_type);
+
+        saveData = new Sharedprefresclass(getApplicationContext());
 
 
 
@@ -151,9 +156,10 @@ public class Activity_register extends AppCompatActivity {
             String userphone = uphone.getText().toString().trim();
             String useraddress = uaddres.getText().toString().trim();
 
+
+
             validate(username, useremail, userpwd, conpwd, userphone,useraddress);
 
-            preparedataforregister(username,useremail,userpwd,userphone,useraddress,latitude,longitude,usrtype);
 
         });
 
@@ -176,15 +182,18 @@ public class Activity_register extends AppCompatActivity {
 //                                                .addFormDataPart("image",file.getName(), RequestBody.create(MediaType.parse("image/png"),file))
                                                 .build();
 
-                    apiInterface.register(requestBody).enqueue(new Callback<Registerresponse>() {
+                    apiInterface.register(requestBody).enqueue(new Callback<LoginResponseModel>() {
                         @Override
-                        public void onResponse(Call<Registerresponse> call, Response<Registerresponse> response) {
+                        public void onResponse(Call<LoginResponseModel> call, Response<LoginResponseModel> response) {
 
                             if (response.isSuccessful()) {
 
                                 if (response.body().getStatus().equals("1")) {
 
-
+                                    saveData.saveaddress(userad);
+                                    saveData.saveEmail(uemail);
+                                    saveData.saveUID(response.body().getUserdata().getId());
+                                    saveData.saveUserType(usrtype.equals("1") ? "customer" : "vendor");
                                     Toast.makeText(getApplicationContext(), "Registered Sucesfully", Toast.LENGTH_SHORT).show();
                                 }
 
@@ -196,7 +205,7 @@ public class Activity_register extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onFailure(Call<Registerresponse> call, Throwable t) {
+                        public void onFailure(Call<LoginResponseModel> call, Throwable t) {
 
                         }
                     });
@@ -300,7 +309,11 @@ public class Activity_register extends AppCompatActivity {
         }
 
         if (isValid) {
-            Toast.makeText(this, "Registered succsfully", Toast.LENGTH_SHORT).show();
+
+            preparedataforregister(username,useremail,userpwd,userphone,useraddss,latitude,longitude,usrtype);
+
+
+//            Toast.makeText(this, "Registered succsfully", Toast.LENGTH_SHORT).show();
         }
 
 

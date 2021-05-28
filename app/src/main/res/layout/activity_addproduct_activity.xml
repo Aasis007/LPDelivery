@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#efefef"
     tools:context=".Addproduct_activity">
 
 
@@ -33,18 +34,18 @@
 
 
         <LinearLayout
+            android:layout_gravity="center"
             android:padding="@dimen/_4sdp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
 
-            <androidx.cardview.widget.CardView
+            <RelativeLayout
 
                 android:layout_width="@dimen/_220sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_gravity="center"
-                app:cardCornerRadius="15dp">
+                android:layout_gravity="center">
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +56,6 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:hint="Gas Name"
-                        android:background="@android:color/transparent"
                         android:padding="@dimen/_4sdp"
                         android:id="@+id/p_name"
                         android:layout_width="match_parent"
@@ -67,14 +67,13 @@
 
 
 
-            </androidx.cardview.widget.CardView>
+            </RelativeLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_marginTop="@dimen/_8sdp"
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="@dimen/_220sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_gravity="center"
-                app:cardCornerRadius="15dp">
+                android:layout_gravity="center">
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -85,7 +84,6 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:hint="Gas Price"
-                        android:background="@android:color/transparent"
                         android:padding="@dimen/_4sdp"
                         android:id="@+id/p_price"
                         android:inputType="number"
@@ -98,14 +96,14 @@
 
 
 
-            </androidx.cardview.widget.CardView>
+            </RelativeLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_marginTop="@dimen/_8sdp"
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_width="@dimen/_220sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_gravity="center"
-                app:cardCornerRadius="15dp">
+                >
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -116,7 +114,6 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:hint="Gas Stock"
-                        android:background="@android:color/transparent"
                         android:padding="@dimen/_4sdp"
                         android:id="@+id/p_stock"
                         android:inputType="number"
@@ -130,7 +127,7 @@
 
 
 
-            </androidx.cardview.widget.CardView>
+            </RelativeLayout>
 
 
             <Button
@@ -138,8 +135,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:text="Submit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"/>
 
         </LinearLayout>
 

@@ -429,9 +429,12 @@
 
 
                 <EditText
+                    android:text="fdsafas"
+                    android:backgroundTint="@color/black"
+                    android:layout_margin="@dimen/_10sdp"
                     android:id="@+id/notes"
                     android:inputType="text"
-                    android:padding="@dimen/_4sdp"
+                    android:padding="@dimen/_5sdp"
                     android:hint="Special instructions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>

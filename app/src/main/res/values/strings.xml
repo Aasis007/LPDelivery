@@ -9,4 +9,22 @@
     <string name="invalid_cpwd">passwords do not match</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="subscribe_to_weather">Subscribe To gasAgency</string>
+    <string name="log_token">Log Token</string>
+
+    <string name="msg_subscribed">Subscribed to LpDelivery updates topic</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <!--
+        This is the name that users will see when interacting with this channel.
+        It should describe the category of notifications that will be sent through this channel
+     -->
+    <!-- [START fcm_default_icon_string] -->
+    <string name="default_notification_channel_name" translatable="true">gasAgency</string>
+    <!-- [END fcm_default_icon_string] -->
+    <string name="msg_subscribe_failed">Failed to subscribe to LpDelivery updates topic</string>
+    <string name="fcm_message">gasAgency</string>
+
 </resources>
