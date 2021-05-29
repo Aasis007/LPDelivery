@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Home" />
+        android:title="Dashboard" />
 
 
     <item
@@ -25,7 +25,7 @@
     <item
         android:id="@+id/vendor_Orders"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
-        android:title="VendorDashboard"/>
+        android:title="My Orders"/>
 
 
 </menu>

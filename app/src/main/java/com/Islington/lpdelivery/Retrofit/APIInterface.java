@@ -67,6 +67,14 @@ public interface APIInterface {
 
 
     @Headers("x-api-key: pu@7_3w@6")
+    @GET("getUserOrders")
+    Call<OrdersModel> getUserOrderspending (@Query("uid") String uid,
+                                       @Query("status") String status);
+
+
+
+
+    @Headers("x-api-key: pu@7_3w@6")
     @GET("getVendorOrders")
     Call<OrdersModel> getvendororders (@Query("uid") String uid,
                                        @Query("status") String status);
@@ -75,6 +83,17 @@ public interface APIInterface {
     @Headers("x-api-key: pu@7_3w@6")
     @POST("approveOrder")
     Call<RequestOrderResponse> approveorder (@Body RequestBody body);
+
+
+    @Headers("x-api-key: pu@7_3w@6")
+    @POST("approveOrder")
+    Call<RequestOrderResponse> completedelivery (@Body RequestBody body);
+
+
+
+    @Headers("x-api-key: pu@7_3w@6")
+    @POST("deleteOrder")
+    Call<RequestOrderResponse> deleteorder (@Body RequestBody body);
 
 
 

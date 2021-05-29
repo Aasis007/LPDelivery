@@ -20,7 +20,10 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:theme"
         tools:targetApi="m">
-        <activity android:name=".Pending_ordersactivity_vendors"></activity>
+        <activity android:name=".Vendorapprovedorders_activity"></activity>
+        <activity android:name=".Userapprovedorder_activity" />
+        <activity android:name=".Pendingordersuser_activity" />
+        <activity android:name=".Pending_ordersactivity_vendors" />
         <activity android:name=".Addproduct_activity" />
         <activity android:name=".Confirmorder_activity" />
         <activity android:name=".VendorList" />
@@ -44,7 +47,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"

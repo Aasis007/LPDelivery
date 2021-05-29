@@ -74,6 +74,17 @@ public class Vendor_Orders extends Fragment {
         });
 
 
+
+        appreovedorders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent approved = new Intent(getActivity(),Vendorapprovedorders_activity.class);
+                startActivity(approved);
+
+            }
+        });
+
         return view;
 
 
