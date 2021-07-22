@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.Islington.lpdelivery.Adapter.ProductsAdapter;
+import com.Islington.lpdelivery.Adapter.VendorProductListAdapter;
 import com.Islington.lpdelivery.Addproduct_activity;
 import com.Islington.lpdelivery.Model.ProductsModel;
 import com.Islington.lpdelivery.Model.VendorModel;
@@ -34,7 +36,7 @@ public class VendorDashboardFragment extends Fragment {
     Sharedprefresclass sharedprefresclass;
     private final Retrofit retrofit = APIClient.getRetrofit();
     private final APIInterface apiInterface =retrofit.create(APIInterface.class);
-    ProductsAdapter productsAdapter;
+    VendorProductListAdapter vendorProductListAdapter;
     List<ProductsModel> productsModels;
     RecyclerView vendoritems_rv;
     FloatingActionButton addbtn;
@@ -81,18 +83,25 @@ public class VendorDashboardFragment extends Fragment {
                     @Override
                     public void onResponse(Call<ProductsModel> call, Response<ProductsModel> response) {
 
-                        if (response.isSuccessful()) {
+                           if (response.body().getStatus().equals("1")) {
 
-                            productsModels = new ArrayList<>();
-                            productsAdapter = new ProductsAdapter(getContext(),response.body().getProductsData());
-                            vendoritems_rv.setAdapter(productsAdapter);
+                               productsModels = new ArrayList<ProductsModel>();
+                               vendorProductListAdapter = new VendorProductListAdapter(getContext(), response.body().getProductsData());
+                               vendoritems_rv.setAdapter(vendorProductListAdapter);
 
 
-                        }
+                           }
+
+                           else {
+
+                               Toast.makeText(getContext(), "NO Products", Toast.LENGTH_SHORT).show();
+                           }
                     }
 
                     @Override
                     public void onFailure(Call<ProductsModel> call, Throwable t) {
+
+
 
                     }
                 });

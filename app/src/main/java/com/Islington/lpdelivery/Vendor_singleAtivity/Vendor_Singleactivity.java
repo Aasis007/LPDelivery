@@ -149,7 +149,7 @@ public class Vendor_Singleactivity extends AppCompatActivity {
 
                         Log.d("response","response"+response.body().toString());
                         productsData = new ArrayList<>();
-                        vendor_id = response.body().getProductsData().get(0).getP_id();
+                        vendor_id = response.body().getProductsData().get(0).getVendor_id();
                         prod_name.setText(response.body().getProductsData().get(0).getName());
                         prod_price.setText(response.body().getProductsData().get(0).getPrice());
                         proprice = response.body().getProductsData().get(0).getPrice();

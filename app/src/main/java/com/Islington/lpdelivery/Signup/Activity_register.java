@@ -43,13 +43,11 @@ import com.Islington.lpdelivery.Retrofit.APIClient;
 import com.Islington.lpdelivery.Retrofit.APIInterface;
 import com.Islington.lpdelivery.Utils.Sharedprefresclass;
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -74,12 +72,12 @@ public class Activity_register extends AppCompatActivity {
     ImageButton pickimage;
     TextView signin;
     LinearLayout img_picker;
-    String latitude = null;
-    String longitude = null;
+    String latitude ;
+    String longitude;
     String usrtype;
     File file;
     String userType = "0";
-    Sharedprefresclass saveData;
+    Sharedprefresclass sharedprefresclass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +99,7 @@ public class Activity_register extends AppCompatActivity {
         signin = findViewById(R.id.txt_signin);
         usertype = findViewById(R.id.user_type);
 
-        saveData = new Sharedprefresclass(getApplicationContext());
+
 
 
 
@@ -167,7 +165,7 @@ public class Activity_register extends AppCompatActivity {
     }
 
     private void preparedataforregister( String username, String uemail, String upasswprd, String userphone,String userad, String latitude, String longitude,String usrtype) {
-
+        sharedprefresclass = new Sharedprefresclass(getApplication());
 
                     RequestBody requestBody = new MultipartBody.Builder()
                                                 .setType(MultipartBody.FORM)
@@ -182,19 +180,23 @@ public class Activity_register extends AppCompatActivity {
 //                                                .addFormDataPart("image",file.getName(), RequestBody.create(MediaType.parse("image/png"),file))
                                                 .build();
 
-                    apiInterface.register(requestBody).enqueue(new Callback<LoginResponseModel>() {
+                    apiInterface.register(requestBody).enqueue(new Callback<Registerresponse>() {
                         @Override
-                        public void onResponse(Call<LoginResponseModel> call, Response<LoginResponseModel> response) {
+                        public void onResponse(Call<Registerresponse> call, Response<Registerresponse> response) {
 
                             if (response.isSuccessful()) {
 
                                 if (response.body().getStatus().equals("1")) {
 
-                                    saveData.saveaddress(userad);
-                                    saveData.saveEmail(uemail);
-                                    saveData.saveUID(response.body().getUserdata().getId());
-                                    saveData.saveUserType(usrtype.equals("1") ? "customer" : "vendor");
-                                    Toast.makeText(getApplicationContext(), "Registered Sucesfully", Toast.LENGTH_SHORT).show();
+                                    sharedprefresclass.saveEmail(uemail);
+                                    String id = response.body().getUsersData().get(0).getId();
+                                    Log.d("id","id"+id);
+                                    sharedprefresclass.saveUID(id);
+                                    sharedprefresclass.saveUserType(usrtype.equals("1") ? "customer" : "vendor");
+
+                                    Toast.makeText(getApplication(), "Registered Sucesfully", Toast.LENGTH_SHORT).show();
+                                    Intent loginintent = new Intent(getApplication(),Login_activity.class);
+                                    startActivity(loginintent);
                                 }
 
                                 else {
@@ -205,7 +207,7 @@ public class Activity_register extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onFailure(Call<LoginResponseModel> call, Throwable t) {
+                        public void onFailure(Call<Registerresponse> call, Throwable t) {
 
                         }
                     });

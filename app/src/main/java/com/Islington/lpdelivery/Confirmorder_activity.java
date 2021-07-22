@@ -18,6 +18,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -50,8 +51,8 @@ public class Confirmorder_activity extends AppCompatActivity {
         sharedprefresclass = new Sharedprefresclass(getApplicationContext());
         //orderdate
         calendar = Calendar.getInstance();
-        dateFormat = new SimpleDateFormat("MM/DD/YYYY");
-        String cdate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String cdate = dateFormat.format(new Date());
         //customerid
         String customer_id = sharedprefresclass.getUID();
         Toast.makeText(this, "cid"+customer_id, Toast.LENGTH_SHORT).show();
@@ -127,7 +128,7 @@ public class Confirmorder_activity extends AppCompatActivity {
                 apiInterface.sendorder(requestBody).enqueue(new Callback<RequestOrderResponse>() {
                     @Override
                     public void onResponse(Call<RequestOrderResponse> call, Response<RequestOrderResponse> response) {
-
+                        System.out.println(response.body().toString());
                         if (response.isSuccessful()) {
 
                             if (response.body().getStatus().equals("1")) {

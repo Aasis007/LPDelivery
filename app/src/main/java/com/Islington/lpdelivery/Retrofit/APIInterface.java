@@ -32,7 +32,7 @@ public interface APIInterface {
 
     @Headers("x-api-key: pu@7_3w@6")
     @POST("register")
-    Call<LoginResponseModel> register(@Body RequestBody body);
+    Call<Registerresponse> register(@Body RequestBody body);
 
 
 
@@ -94,7 +94,6 @@ public interface APIInterface {
     @Headers("x-api-key: pu@7_3w@6")
     @POST("deleteOrder")
     Call<RequestOrderResponse> deleteorder (@Body RequestBody body);
-
 
 
 }

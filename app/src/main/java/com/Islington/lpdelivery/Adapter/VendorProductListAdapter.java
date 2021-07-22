@@ -19,19 +19,19 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHolder> {
+public class VendorProductListAdapter extends RecyclerView.Adapter<VendorProductListAdapter.ViewHolder> {
     private Context context;
     private List<ProductsModel.ProductsData> productsModels;
 
 
-    public ProductsAdapter(Context context, List<ProductsModel.ProductsData> productsModels) {
+    public VendorProductListAdapter(Context context, List<ProductsModel.ProductsData> productsModels) {
         this.context = context;
         this.productsModels = productsModels;
     }
 
     @NonNull
     @Override
-    public ProductsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public VendorProductListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_productitems,parent, false);
         return new ViewHolder(view);
     }
@@ -46,15 +46,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         holder.vendor_name.setText(productname);
         Picasso.get().load(R.drawable.gas).into(holder.vendor_img);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent detailintent = new Intent(context, VendorList.class);
-                detailintent.putExtra("prodname",productname);
-                context.startActivity(detailintent);
 
-            }
-        });
 
     }
 

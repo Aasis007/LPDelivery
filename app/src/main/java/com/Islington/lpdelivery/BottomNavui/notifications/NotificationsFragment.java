@@ -98,7 +98,7 @@ public class NotificationsFragment extends Fragment {
                     notificationsfragmentAdapter.notifyDataSetChanged();
 
 
-                    Log.d("notifiation","noti"+response.body().getNotification_data().get(0).getTitle());
+//                    Log.d("notifiation","noti"+response.body().getNotification_data().get(0).getTitle());
 
 
                 }

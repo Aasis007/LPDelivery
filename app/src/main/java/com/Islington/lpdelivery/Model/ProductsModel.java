@@ -16,7 +16,7 @@ public class ProductsModel {
 
     @SerializedName("products")
     @Expose
-    private List<ProductsData> productsData = null;
+    private List<ProductsData> productsData;
 
     public ProductsModel(String status, String message, List<ProductsData> productsData) {
         this.status = status;

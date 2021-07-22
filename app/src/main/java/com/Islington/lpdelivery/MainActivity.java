@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.Islington.lpdelivery.Utils.Sharedprefresclass;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -79,12 +80,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        // R.id.navigation_home,
-        // R.id.navigation_dashboard,
-        // R.id.navigation_notifications,
-        // R.id.vendorDashboardFragment,
-        // R.id.vendor_Orders)
-        //
+        Toast.makeText(this, "type:"+saveData.getUserType(), Toast.LENGTH_SHORT).show();
         if (saveData.getUserType().equals("customer")){
             menu = navView.getMenu();
             menu.findItem(R.id.vendorDashboardFragment).setVisible(false);

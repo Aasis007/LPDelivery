@@ -127,8 +127,7 @@ public class Addproduct_activity extends AppCompatActivity {
 
                             Toast.makeText(getApplicationContext(), "Product Added", Toast.LENGTH_SHORT).show();
 
-                            Intent dashboardintent = new Intent(getApplicationContext(), VendorDashboardFragment.class);
-                            startActivity(dashboardintent);
+                            finish();
                         }
                         else {
                             Toast.makeText(getApplicationContext(), "Failed to Add Product", Toast.LENGTH_SHORT).show();
